@@ -1,20 +1,53 @@
+import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config = {
+  darkMode: "class",
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
+  prefix: "",
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0 " },
+          "100%": { opacity: "1" },
+        },
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "100": { opacity: "0" },
+        },
+        scrollDown: {
+          "0%": { top: "0" },
+          "100%": { top: "80px" },
+        },
+        // leaves: {
+        //   "0%": { opacity: "1" },
+        //   "25%": { opacity: "0.75" },
+        //   "50%": { opacity: "0.50" },
+        //   "75%": { opacity: "0.25" },
+        //   "100": { opacity: "0" },
+        // },
+        // enters: {
+        //   "0%": { opacity: "0.25" },
+        //   "50%": { opacity: "0.50" },
+        //   "75%": { opacity: "0.75" },
+        //   "100": { opacity: "1" },
+        // },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.5s ease-in-out",
+        fadeOut: "fadeOut 0.5s ease-in-out",
+        scrollDown: "scrollDown 0.5s ease-in-out",
+        // leaves: "leaves 0.3 ease-out",
+        // enters: "enters 0.3 ease-in",
       },
     },
   },
-  plugins: [],
-};
+} satisfies Config;
+
 export default config;

@@ -3,31 +3,65 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: white;
+  --foreground: black;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+[data-theme="dark"] {
+  --background: black;
+  --foreground: white;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f2f5f5;
+  display: none;
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.animate-enter {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.animate-enters {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.animate-leave {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.animate-leaves {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
 }
