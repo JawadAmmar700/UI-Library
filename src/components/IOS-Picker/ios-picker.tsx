@@ -186,7 +186,7 @@ const IOSPicker = <T extends readonly string[]>({
           paddingBottom: `${rootMargin + itemHeight}px`,
         }}
         ref={wheelRef}
-        className="h-full col-span-2 flex flex-col overflow-y-scroll overflow-x-hidden hide-scroll-bar snap-y snap-mandatory "
+        className="h-full col-span-2 text-white flex flex-col overflow-y-scroll overflow-x-hidden hide-scroll-bar snap-y snap-mandatory "
       >
         {data.map((item, i) => (
           <div

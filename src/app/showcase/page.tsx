@@ -1,6 +1,6 @@
 "use client";
-import AnimateUi from "@/components/ui/animate-ui";
-import IOSPicker from "@/components/ui/ios-picker";
+import AnimateUi from "@/components/IOS-Picker/animate-ui";
+import IOSPicker from "@/components/IOS-Picker/ios-picker";
 import { Frameworks, ProjectsList } from "@/lib/constants";
 import React, { useState } from "react";
 
@@ -17,7 +17,7 @@ const Page = () => {
   };
 
   return (
-    <main className="flex p-5 h-screen justify-evenly items-center w-full bg-slate-800">
+    <main className="flex p-5 h-screen justify-start items-center space-x-5 w-full bg-slate-800">
       <IOSPicker
         key={154656}
         data={Frameworks}
